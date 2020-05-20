@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+</head>
+<body>
+  	May Node and Express be with y
+	<form action="/add" method="POST">
+		<input type="text" placeholder="email" name="email">
+		<input type="text" placeholder="First Name" name="firstName">
+		<input type="text" placeholder="Last Name" name="lastName">
+		<input type="text" placeholder="password" name="passwordHash">
+		<button type="submit">Submit</button>
+	</form>
+	<script>
+		function sendJSON(){
+
+			var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("result").innerHTML =
+					this.responseText;
+				}
+				};
+			xmlhttp.open("POST", "http://localhost:4000");
+			xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+			xmlhttp.send(JSON.stringify(myData));
+			
+			}
+		
+	</script>
+</body>
+</html>
